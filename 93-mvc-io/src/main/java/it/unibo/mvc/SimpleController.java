@@ -13,13 +13,12 @@ import java.util.Objects;
 public final class SimpleController implements Controller {
     private final List<String> history;
     private String currentString;
-
     /**
      * Builds a new SimpleController for the program.
      */
     public SimpleController() {
         this.history = new ArrayList<>();
-    }    
+    }
     @Override
     public void setNextString(final String passed) {
         Objects.requireNonNull(passed, "The message passed is null, that's not acceptable");

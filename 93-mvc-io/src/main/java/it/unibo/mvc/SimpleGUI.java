@@ -25,15 +25,14 @@ public final class SimpleGUI {
 
     /**
      * Build a very simple GUI for the program.
-     * @param controller is used for manipulate and obtain data.
      */
-    public SimpleGUI(){
+    public SimpleGUI() {
         final JPanel canvas = new JPanel();
         canvas.setLayout(new BorderLayout());
         final JTextField tField = new JTextField();
         canvas.add(tField, BorderLayout.NORTH);
         final JTextArea tArea = new JTextArea();
-        canvas.add(tArea,BorderLayout.CENTER);
+        canvas.add(tArea, BorderLayout.CENTER);
         final JPanel innerCanvas = new JPanel();
         innerCanvas.setLayout(new BoxLayout(innerCanvas, BoxLayout.X_AXIS));
         final JButton printButton = new JButton("Print");
@@ -43,19 +42,19 @@ public final class SimpleGUI {
         canvas.add(innerCanvas, BorderLayout.PAGE_END);
         frame.setContentPane(canvas);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        printButton.addActionListener(new ActionListener(){
+        printButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent arg0) {
+            public void actionPerformed(final ActionEvent arg0) {
                 Objects.requireNonNull(tField.getText());
                 controller.setNextString(tField.getText());
                 controller.printCurrentString();
             }
         });
-        historyButton.addActionListener(new ActionListener(){
+        historyButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent arg0) {
+            public void actionPerformed(final ActionEvent arg0) {
                 String fullHistory = " ";
-                for(final String x : controller.getHistory()){
+                for (final String x : controller.getHistory()) {
                     fullHistory = fullHistory.concat(x + "\n");
                 }
                 tArea.setText(fullHistory);
@@ -77,7 +76,11 @@ public final class SimpleGUI {
         frame.setVisible(true);
     }
 
-    public static void main(String[] args) {
+    /**
+     * Is the main of application.
+     * @param args the passed args for the main.
+     */
+    public static void main(final String[] args) {
         new SimpleGUI().display();
     }
 
