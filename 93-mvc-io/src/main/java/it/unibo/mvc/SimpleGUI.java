@@ -5,7 +5,6 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
 import java.util.Objects;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -24,6 +23,10 @@ public final class SimpleGUI {
     private final JFrame frame = new JFrame();
     private final Controller controller = new SimpleController();
 
+    /**
+     * Build a very simple GUI for the program.
+     * @param controller is used for manipulate and obtain data.
+     */
     public SimpleGUI(){
         final JPanel canvas = new JPanel();
         canvas.setLayout(new BorderLayout());
@@ -52,7 +55,7 @@ public final class SimpleGUI {
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 String fullHistory = " ";
-                for(String x : controller.getHistory()){
+                for(final String x : controller.getHistory()){
                     fullHistory = fullHistory.concat(x + "\n");
                 }
                 tArea.setText(fullHistory);
@@ -62,6 +65,9 @@ public final class SimpleGUI {
         });
     }
 
+    /**
+     * Start the program and set the size by picking data from system settings.
+     */
     private void display() {
         final Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
         final int sw = (int) screen.getWidth();

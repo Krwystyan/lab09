@@ -6,19 +6,23 @@ import java.util.Objects;
 
 /**
  * 
+ * This class implements the interface Controller.
+ * {@link Controller}
  *
  */
 public final class SimpleController implements Controller {
-    private List<String> history;
+    private final List<String> history;
     private String currentString;
 
-    public SimpleController(){
+    /**
+     * Builds a new SimpleController for the program.
+     */
+    public SimpleController() {
         this.history = new ArrayList<>();
-    }
-    
+    }    
     @Override
     public void setNextString(final String passed) {
-        Objects.requireNonNull(passed,"The message passed is null, that's not acceptable");
+        Objects.requireNonNull(passed, "The message passed is null, that's not acceptable");
         this.currentString = passed;
         history.add(currentString);
     }

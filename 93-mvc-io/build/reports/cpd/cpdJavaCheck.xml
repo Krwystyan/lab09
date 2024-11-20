@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="Cp1252"?>
+<pmd-cpd xmlns="https://pmd-code.org/schema/cpd-report"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         pmdVersion="7.7.0"
+         timestamp="2024-11-20T18:08:42.8130534+01:00"
+         version="1.0.0"
+         xsi:schemaLocation="https://pmd-code.org/schema/cpd-report https://pmd.github.io/schema/cpd-report_1_0_0.xsd">
+   <file path="C:\Users\cristian.didonato\lab09\93-mvc-io\src\main\java\it\unibo\mvc\Controller.java"
+         totalNumberOfTokens="27"/>
+   <file path="C:\Users\cristian.didonato\lab09\93-mvc-io\src\main\java\it\unibo\mvc\SimpleController.java"
+         totalNumberOfTokens="139"/>
+   <file path="C:\Users\cristian.didonato\lab09\93-mvc-io\src\main\java\it\unibo\mvc\SimpleGUI.java"
+         totalNumberOfTokens="367"/>
+</pmd-cpd>
