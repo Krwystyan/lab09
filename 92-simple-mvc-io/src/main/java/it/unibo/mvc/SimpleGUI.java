@@ -1,13 +1,11 @@
 package it.unibo.mvc;
 
 import java.awt.BorderLayout;
-import java.awt.Desktop.Action;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -24,7 +22,7 @@ public final class SimpleGUI {
     private final JFrame frame = new JFrame();
     private final Controller controller = new Controller();
 
-    public SimpleGUI(){
+    public SimpleGUI() {
         final JPanel canvas = new JPanel();
         canvas.setLayout(new BorderLayout());
         final JTextField textField = new JTextField();
@@ -32,18 +30,16 @@ public final class SimpleGUI {
         canvas.add(textField, BorderLayout.CENTER);
         canvas.add(savButton, BorderLayout.SOUTH);
         frame.setContentPane(canvas);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);        
         savButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent e) {
-                try{
+                try {
                     controller.writeAString(textField.getText());
-                } catch (NullPointerException | FileNotFoundException nullPointerException) {
+                } catch (FileNotFoundException nullPointerException) {
                     JOptionPane.showMessageDialog(frame, nullPointerException, "Error", JOptionPane.ERROR_MESSAGE);
-                    nullPointerException.printStackTrace();
-                }
-                
+                    nullPointerException.printStackTrace(); // NOPMD: allowed as this is just an exercise
+                }  
             }
         });
     }
@@ -73,7 +69,7 @@ public final class SimpleGUI {
         frame.setVisible(true);
     }
 
-    public static void main(String[] args){
+    public static void main(final String[] args) {
         new SimpleGUI().display();
     }
 

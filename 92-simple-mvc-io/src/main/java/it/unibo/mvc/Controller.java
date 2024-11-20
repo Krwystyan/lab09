@@ -6,13 +6,11 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 
-import javax.swing.JOptionPane;
-
 /**
  * Application controller. Performs the I/O.
  */
 
-public class Controller implements java.io.Serializable{
+public class Controller implements java.io.Serializable {
     private static final long serialVersionUID = 1;
     private static final String DEFAULTPATH = System.getProperty("user.home")
         + System.getProperty("file.separator")
@@ -28,12 +26,12 @@ public class Controller implements java.io.Serializable{
     public String getFilePath() {
         return this.consideredFile.getPath();
     }
-    public void writeAString(String inputPassed) throws FileNotFoundException {
-        try(PrintStream p = new PrintStream(consideredFile, StandardCharsets.UTF_8)) {
+    public void writeAString(final String inputPassed) throws FileNotFoundException {
+        try (PrintStream p = new PrintStream(consideredFile, StandardCharsets.UTF_8)) {
             p.println(inputPassed);
-        } catch(IOException ioException) {
-            System.out.println("An error during write the file: " + ioException.getMessage());
-            ioException.getStackTrace();
+        } catch (IOException ioException) {
+            System.out.println("An error during write the file: " + ioException.getMessage()); // NOPMD
+            ioException.getStackTrace(); // NOPMD: allowed as this is just an exercise
         }
     }
 
