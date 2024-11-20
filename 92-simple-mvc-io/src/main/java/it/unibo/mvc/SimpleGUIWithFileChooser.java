@@ -58,7 +58,6 @@ public final class SimpleGUIWithFileChooser {
                 }
             }            
         });
-
         savButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent e) {
