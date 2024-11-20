@@ -19,3 +19,4 @@ application {
 tasks.javadoc {
     isFailOnError = false
 }
+

@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.util.Objects;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -50,7 +51,11 @@ public final class SimpleGUI {
         historyButton.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                controller.getHistory().forEach(x -> tArea.setText(x));
+                String fullHistory = " ";
+                for(String x : controller.getHistory()){
+                    fullHistory = fullHistory.concat(x + "\n");
+                }
+                tArea.setText(fullHistory);
                 canvas.validate();
                 innerCanvas.validate();
             } 
